@@ -36,11 +36,11 @@ This method takes an interferogram and processes it into an infrared spectrum. T
 
 2. The interferogram is apodized about the zero-path-difference (ZPD)
 
-* The script was written to accomodate a single-sided interferogram, and applies a symmetric apodization to both sides of the ZPD (e.g. the apodization applied to the right side of the interferogram is scaled from the zpd to the end of the list, and the left side has the same apodization values applied).
+  * The script was written to accomodate a single-sided interferogram, and applies a symmetric apodization to both sides of the ZPD (e.g. the apodization applied to the right side of the interferogram is scaled from the zpd to the end of the list, and the left side has the same apodization values applied).
 
 3. A ramp is applied to the centerburst to avoid "wiggles"
-* The ramp is 0 at the 0th index and ramps linearly to a value of 1 at the index 2 times that of the zpd
-* After the index of twice the zpd, the factor remains at 1 for the rest of the interferogram.
+  * The ramp is 0 at the 0th index and ramps linearly to a value of 1 at the index 2 times that of the zpd
+  * After the index of twice the zpd, the factor remains at 1 for the rest of the interferogram.
 
 4. The interferogram is zero-padded to the length specified by the user (default length of 2^16)
 
