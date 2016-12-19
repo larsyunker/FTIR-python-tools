@@ -31,6 +31,7 @@ This class generates and stores an apodization (window) function defined by the 
 
 #### FTIR
 This method takes an interferogram and processes it into an infrared spectrum. The processing method is currently as follows:
+
 1. The interferogram is zeroed (centered around zero)
 
 2. The interferogram is apodized about the zero-path-difference (ZPD)
