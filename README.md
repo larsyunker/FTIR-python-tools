@@ -33,10 +33,10 @@ This class generates and stores an apodization (window) function defined by the 
 This method takes an interferogram and processes it into an infrared spectrum. The processing method is currently as follows:
 1. The interferogram is zeroed (centered around zero)
 2. The interferogram is apodized about the zero-path-difference (ZPD)
-  * The script was written to accomodate a single-sided interferogram, and applies a symmetric apodization to both sides of the ZPD (e.g. the apodization applied to the right side of the interferogram is scaled from the zpd to the end of the list, and the left side has the same apodization values applied).
+* The script was written to accomodate a single-sided interferogram, and applies a symmetric apodization to both sides of the ZPD (e.g. the apodization applied to the right side of the interferogram is scaled from the zpd to the end of the list, and the left side has the same apodization values applied).
 3. A ramp is applied to the centerburst to avoid "wiggles"
-  * The ramp is 0 at the 0th index and ramps linearly to a value of 1 at the index 2 times that of the zpd
-  * After the index of twice the zpd, the factor remains at 1 for the rest of the interferogram.
+* The ramp is 0 at the 0th index and ramps linearly to a value of 1 at the index 2 times that of the zpd
+* After the index of twice the zpd, the factor remains at 1 for the rest of the interferogram.
 4. The interferogram is zero-padded to the length specified by the user (default length of 2^16)
 5. The interferogram is rotated (see the rotate method below)
 6. A fast fourier transform is applied to the interferogram
@@ -50,6 +50,7 @@ This method takes an interferogram and processes it into an infrared spectrum. T
   6. The power spectrum is interpolated (linearly) to match the size of the FFT from point #6 above
   7. The FFT result (from point #6) is multiplied by e^(-i*powerspectrum), and the real part of this is the final IR spectrum.
 8. The first half of the symmetric IR spectrum is returned by the function.
+
 ##### A note on the mathmatics
 The author of this script does not have intimate knowledge of the mathmatical processes involved in FTIR spectroscopy, and would greatly appreciate any input from those more knowledgable. If you have comments, suggestions, or other input into this project, please contact the author. 
 
